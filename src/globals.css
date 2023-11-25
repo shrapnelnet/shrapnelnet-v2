@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    margin: 0;
+}
+
+a {
+    color: white;
+}
+
+#nav-button-parent > .MuiBox-root > .MuiBox-root > a {
+    text-decoration: none;
+    display: inline-flex;
+}
+
+div#root > div.MuiBox-root > .MuiButton-contained {
+    color: black;
+    text-shadow: none;
+}
+
+div.MuiInputBase-root > input[id="username"], div.MuiInputBase-root > input[id="password"] {
+    -webkit-box-shadow: none;
+}
