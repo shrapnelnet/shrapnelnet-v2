@@ -4,5 +4,5 @@ COPY package.json .
 RUN npm i
 COPY . .
 RUN npm run build
-EXPOSE 3000
+EXPOSE 80
 CMD ["npm", "run serve"]
