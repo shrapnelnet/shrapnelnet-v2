@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar.jsx"
 import Entry from "./components/Entry.jsx"
 import PostSkeleton from "./components/PostSkeleton.jsx"
 import Post from "./components/Post.jsx"
+import { Box } from "@mui/material"
+import Button from "@mui/material/Button"
 
 export default function App({isLoggedIn}) {
     const [loading, setLoading] = useState(true)
@@ -19,7 +21,6 @@ export default function App({isLoggedIn}) {
                 setPosts(res)
                 setOffset(offset + 10)
                 setLoading(false)
-
             })
     }, [])
 
@@ -44,6 +45,9 @@ export default function App({isLoggedIn}) {
                     :
                         null
             }
+            <Box>
+                <Button variant={"contained"}>Load More</Button>
+            </Box>
         </React.Fragment>
     )
 }

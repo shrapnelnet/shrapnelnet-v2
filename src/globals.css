@@ -41,6 +41,10 @@ ul.MuiList-root > a {
         width: 80dvw;
     }
 
+    div.MuiBox-root > div.MuiFormControl-root.MuiTextField-root.entry {
+        width: 100%;
+    }
+
     #nav-button-parent > div > div > a > button, #nav-button-parent > div > div > button {
         display: none;
     }
