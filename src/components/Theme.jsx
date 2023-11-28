@@ -21,6 +21,13 @@ export const theme = createTheme({
                     textShadow: "0 0 3px whitesmoke"
                 }
             }
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    textDecoration: "none"
+                }
+            }
         }
     }
 })
