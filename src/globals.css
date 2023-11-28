@@ -21,3 +21,26 @@ div.MuiInputBase-root > input[id="username"], div.MuiInputBase-root > input[id="
 div.profile-button-group > button {
     text-shadow: none;
 }
+
+#nav-button-parent > div > div > button#collapse {
+    display: none;
+}
+
+ul.MuiList-root > a {
+    text-decoration: none;
+}
+
+@media screen and (width < 850px) {
+    #nav-button-parent > div > div > a > button, #nav-button-parent > div > div > button {
+        display: none;
+    }
+
+    #nav-button-parent > div > div > button#collapse {
+        display: block;
+    }
+
+    body > div#root > div.content.MuiBox-root {
+        width: 90dvw;
+        max-width: unset;
+    }
+}
