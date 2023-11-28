@@ -27,8 +27,7 @@ export default function Register() {
                 password
             })
         })
-            .then((res) => res.text())
-            .then(async (res) => {
+            .then((res) => {
                 if (res.ok) {
                     setError("")
                     setSuccess("Registered successfully! Redirecting to login...")
@@ -36,7 +35,7 @@ export default function Register() {
                         redirect("/login")
                     }, 500)
                 } else {
-                    setError(res)
+                    setError("Something went wrong! Maybe this username is in use.")
                 }
             })
     }
