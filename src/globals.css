@@ -31,6 +31,16 @@ ul.MuiList-root > a {
 }
 
 @media screen and (width < 850px) {
+    div.MuiBox-root > .MuiFormControl-root {
+        width: 80vw;
+        width: 80dvw;
+    }
+
+    button#register, button#login {
+        width: 80vw;
+        width: 80dvw;
+    }
+
     #nav-button-parent > div > div > a > button, #nav-button-parent > div > div > button {
         display: none;
     }

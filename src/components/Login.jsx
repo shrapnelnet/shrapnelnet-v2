@@ -55,7 +55,7 @@ export default function Login() {
             <Box sx={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: "50px" }}>
                 <TextField onChange={handleUsernameChange} id="username" autoComplete="username" required name="username" sx={{ width: "20%" }} label="Username"></TextField>
                 <TextField onChange={handlePasswordChange} id="password" autoComplete="password" required type="password" name="password" sx={{ width: "20%", marginTop: "25px" }} label="Password"></TextField>
-                <Button onClick={handleFormSubmit} type="submit" variant="contained" sx={{ width: "20%", margin: "25px 0", padding: "10px 0" }}>Log In</Button>
+                <Button id={"login"} onClick={handleFormSubmit} type="submit" variant="contained" sx={{ width: "20%", margin: "25px 0", padding: "10px 0" }}>Log In</Button>
                 <Link to={"/register"}>
                     <Typography>Or register...</Typography>
                 </Link>

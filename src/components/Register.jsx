@@ -54,7 +54,7 @@ export default function Register() {
             <Box sx={{ display: "flex", alignItems: "center", flexDirection: "column", marginTop: "50px" }}>
                 <TextField onChange={handleUsernameChange} id="username" autoComplete="username" required name="username" sx={{ width: "20vw" }} label="Username"></TextField>
                 <TextField onChange={handlePasswordChange} id="password" required autoComplete="new-password" type="password" name="password" sx={{ width: "20%", marginTop: "25px" }} label="Password"></TextField>
-                <Button onClick={handleFormSubmit} type="submit" variant="contained" sx={{ width: "20%", margin: "25px 0", padding: "10px 0" }}>Register</Button>
+                <Button id={"register"} onClick={handleFormSubmit} type="submit" variant="contained" sx={{ width: "20%", margin: "25px 0", padding: "10px 0" }}>Register</Button>
                 <Link to={"/login"}>Or log in...</Link>
                 <Typography sx={{ margin: "40px" }}>If you forget your password, you're stuffed. remember it stupido</Typography>
                 <Typography color={"red"}>{error}</Typography>
