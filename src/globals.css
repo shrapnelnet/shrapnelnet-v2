@@ -57,4 +57,9 @@ ul.MuiList-root > a {
         width: 90dvw;
         max-width: unset;
     }
+
+    div.skeleton {
+        width: 80vw;
+        width: 80dvw;
+    }
 }
