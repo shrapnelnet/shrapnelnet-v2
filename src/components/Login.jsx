@@ -1,13 +1,14 @@
 import React, { useState } from "react"
-import Box from "@mui/material/Box"
+// https://github.com/mui/material-ui/issues/31835#issuecomment-1154846767
+import { Box } from "@mui/material/"
 import TextField from "@mui/material/TextField"
 import Button from "@mui/material/Button"
 import Navbar from "./Navbar.jsx"
 import Typography from "@mui/material/Typography"
-import { Link, redirect } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Login() {
-
+    const navigate = useNavigate()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
@@ -19,7 +20,7 @@ export default function Login() {
             setSuccess("")
             return
         }
-        await fetch("https://login.shrapnelnet.workers.dev", {
+        fetch("/api/login", {
             method: "POST",
             body: JSON.stringify({
                 username,
@@ -27,16 +28,15 @@ export default function Login() {
             }),
             credentials: "include"
         })
-            .then((res) => res.text())
             .then(async (res) => {
                 if (res.ok) {
                     setError("")
                     setSuccess("Logged in successfully! Redirecting to home...")
                     setTimeout(() => {
-                        redirect("/")
-                    }, 500)
+                        navigate("/")
+                    }, 750)
                 } else {
-                    setError(res)
+                    setError("Are you sure that's an account?")
                 }
             })
     }
@@ -59,6 +59,8 @@ export default function Login() {
                 <Link to={"/register"}>
                     <Typography>Or register...</Typography>
                 </Link>
+                <Typography sx={{ marginTop: "15px", color: "#00c100" }}>{success}</Typography>
+                <Typography sx={{ color: "red" }}>{error}</Typography>
             </Box>
         </React.Fragment>
     )

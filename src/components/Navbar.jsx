@@ -1,10 +1,24 @@
-import React from "react"
-import Box from "@mui/material/Box"
+import React, { useEffect, useState } from "react"
+// https://github.com/mui/material-ui/issues/31835#issuecomment-1154846767
+import { Box } from "@mui/material/"
 import Typography from "@mui/material/Typography"
 import Button from "@mui/material/Button"
 import { Link } from "react-router-dom"
 
-export default function Navbar(isLoggedIn) {
+export default function Navbar() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    useEffect(() => {
+        fetch("/api/isLoggedIn")
+            .then((res) => res.json())
+            .then((res) => {
+                setIsLoggedIn(res.isLoggedIn)
+            })
+            .catch(() => {
+                setIsLoggedIn(false)
+            })
+    }, []);
+
     return (
         <React.Fragment>
             <Box id={"nav-button-parent"}>
@@ -20,9 +34,17 @@ export default function Navbar(isLoggedIn) {
                     </Box>
                     <Box sx={{ display: "flex", flex: "1", justifyContent: "space-evenly" }}>
                         <Button>Messages</Button>
-                        <Link to={"/login"}>
-                            <Button>Login</Button>
-                        </Link>
+                        {
+                            isLoggedIn
+                            ?
+                                <Link to={`/account`}>
+                                    <Button>Account</Button>
+                                </Link>
+                            :
+                                <Link to={"/login"}>
+                                    <Button>Login</Button>
+                                </Link>
+                        }
                     </Box>
                 </Box>
             </Box>

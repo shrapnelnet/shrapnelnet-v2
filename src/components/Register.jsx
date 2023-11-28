@@ -4,9 +4,9 @@ import Typography from "@mui/material/Typography"
 import { Link } from "react-router-dom"
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
-import Box from "@mui/material/Box"
+// https://github.com/mui/material-ui/issues/31835#issuecomment-1154846767
+import { Box } from "@mui/material/"
 import { redirect } from "react-router-dom"
-import { red } from "@mui/material/colors"
 
 export default function Register() {
     const [username, setUsername] = useState("")
