@@ -4,9 +4,32 @@ import { Avatar, Box } from "@mui/material"
 import Typography from "@mui/material/Typography"
 import { useParams } from "react-router"
 import Button from "@mui/material/Button"
+import { useNavigate } from "react-router-dom"
 
 export default function Profile() {
+    const navigate = useNavigate()
     const { username } = useParams()
+    fetch("/api/isLoggedIn")
+        .then((res) => res.json())
+        .then((res) => {
+            return res.username
+        })
+        .then((currentUsername) => {
+            if (username === currentUsername) {
+                navigate("/account")
+            }
+        })
+
+    const handleAddFriend = () => {
+        fetch("/api/addfriend", {
+            method: "POST",
+            credentials: "include",
+            body: JSON.stringify({username})
+        })
+            .then((res) => {
+                console.log(res)
+            })
+    }
 
     return (
         <React.Fragment>
@@ -18,7 +41,7 @@ export default function Profile() {
                 </Box>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "center", marginTop: "30px" }}>
-                <Button>Add Friend</Button>
+                <Button onClick={handleAddFriend}>Add Friend</Button>
                 <Button>Message</Button>
             </Box>
         </React.Fragment>
