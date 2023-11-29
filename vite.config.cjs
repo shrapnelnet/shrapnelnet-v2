@@ -59,6 +59,16 @@ export default defineConfig({
                     "Access-Control-Allow-Credentials": "true"
                 }
             }
+        },
+        "/api/addfriend": {
+            target: "https://addfriend.shrapnelnet.workers.dev",
+            changeOrigin: true,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "POST, OPTIONS",
+                "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Authorization",
+                "Access-Control-Allow-Credentials": "true"
+            }
         }
     }
 })
